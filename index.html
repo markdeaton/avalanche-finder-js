@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		
+		<title>Avalanche Finder</title>
+		<!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
+		
+		<link rel="stylesheet" href="main.css"/>
+
+		<!-- Calcite Maps Bootstrap -->
+		<!-- <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.3.css"> -->
+		<!-- Calcite Maps -->
+		<!-- <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css"> -->
+		<link rel="stylesheet" href="//js.arcgis.com/4.3/esri/css/main.css"/>
+		<link rel="stylesheet" href="//js.arcgis.com/4.3/dojox/form/resources/RangeSlider.css"/>
+		<link rel="stylesheet" href="//js.arcgis.com/4.3/dijit/themes/claro/claro.css"/>
+
+		<script type="text/javascript">
+		  var dojoConfig = {
+			parseOnLoad: true
+		  };
+		</script>
+		
+		<script type="text/javascript" src="//js.arcgis.com/4.3/"></script>
+		<!-- <script type="text/javascript" src="js/basemapInfo.js"></script> -->
+		<!-- <script type="text/javascript" src="js/CompassGauge.js"></script> -->
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	
+	
+	<body class="claro">
+		<!-- <div style="height:300px; width:300px;" data-dojo-type="CompassGauge"/> -->
+		<div id="mapDiv"/>
+
+		<div id="controlsDiv" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Parameters'">
+			<table id="controlsTable">
+				<tr>
+					<td>
+						<div id="paramElevation" class="parameterCheckBox">
+							<input id="chkElevation" data-dojo-type="dijit/form/CheckBox"/>
+							<label for="chkElevation" class="parameterLabel">Elevation (m):</label>
+						</div>
+					</td><td>
+						<input id="sliderElevation" class="parameterSlider" data-dojo-type="dojox/form/HorizontalRangeSlider"
+							 data-dojo-props="minimum:0, maximum:4500, value:[0, 1000], showButtons:false"></input>
+					</td>
+				</tr><tr>
+					<td>
+						<div id="paramSlope" class="parameterCheckBox">
+							<input id="chkSlope" data-dojo-type="dijit/form/CheckBox"/>
+							<label for="chkSlope" class="parameterLabel">Slope (deg):</label>
+						</div>
+					</td><td>
+						Slider
+					</td>
+				</tr><tr>
+					<td>
+						<div id ="paramAspect" class="parameterCheckBox">
+							<input id="chkAspect" data-dojo-type="dijit/form/CheckBox"/>
+							<label for="chkAspect" class="parameterLabel">Aspect (deg):</label>
+						</div>
+					</td><td align="center">
+						<div id="aspectCompass" data-dojo-type="dojox.gauges.GlossyCircularGauge"
+							data-dojo-props="windowDegrees:50, region:'center'"
+							color="#2F73B6"
+							title="Aspect"
+							useTooltip="false"
+							value="0"
+							width="150"
+							height="150"
+							min="0"
+							max="359"
+							startAngle="0" endAngle="359"
+							needleColor="red"
+							majorTicksInterval="30"
+							majorTicksColor="white"
+							minorTicksInterval="15"
+							font="normal normal normal 7pt sans-serif"
+							background="[255, 255, 255, 0]"
+							title="Margin"
+							noChange="false"
+							textIndicatorFont="normal small-caps bold 12pt Arial"
+							radius="40"
+							majorTicksLabelPlacement="outside"
+							majorTicksColor="white"
+							textIndicatorVisible="false">
+						</div>
+						<div id="compassAngles" style="text-align:center" data-dojo-props="region:'center'"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+	</body>
+	
+</html>
