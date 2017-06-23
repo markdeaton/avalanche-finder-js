@@ -6,19 +6,46 @@ html, body {
   font-family            : "Avenir Next W01", "Avenir Next W00", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   -webkit-font-smoothing : antialiased;
 }
+#titleBar {
+	display: inline-flex;
+    background-color: darkslategrey;
+    font-size: 31px;
+    /* text-align: center; */
+    font-weight: bold;
+    /* font-style: italic; */
+    /* opacity: 0.5; */
+    /* left: 10px; */
+    /* top: 10px; */
+    z-index: 1;
+    padding: 10px;
+    width: 98%;
+    border-style: solid;
+    border-width: 1px;
+    border-left-width: 10px;
+    color: lightgray;
+}
+#titleText {
+	width	: 20%
+	float	: left;
+}
+#esriLogo {
+	text-align: right;
+    width: 75%;
+}
+#esriLogoImage {
+	height	: 40px;
+}
 #mapDiv {
-	height	: 100%;
+	height	: 92%;
 	width	: 100%;
 }
 #controlsDiv {
-	position: absolute;
-	padding	: 5px 5px 5px 5px;
-	/* background-color: rgba(63, 63, 63, 0.8); */
-	opacity	: 0.85;
-	top		: 10px;
-	right	: 10px;
-	/* color	: white; */
-	/* width	: 500px; */
+    position: absolute;
+    padding: 5px 5px 5px 5px;
+    background-color: rgba(63, 63, 63, 0.8);
+    opacity: 0.85;
+    top: 75px;
+    right: 10px;
 }
 #aspectCompass {
 	position: relative	!important;
