@@ -38,10 +38,13 @@ html, body {
 	margin-left	: 5px;
 }
 #controlsTable {
-	border-spacing: 20px 7px;
+	border-spacing: 20px 10px;
     border-collapse: separate;
 }
 .parameterSlider {
 	width		: 200px;
-	height		: 50px;
+	margin-bottom: 8px		!important;
+}
+.parameterText {
+	text-align:center;
 }

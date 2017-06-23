@@ -28,46 +28,48 @@
 		</script>
 		
 		<script type="text/javascript" src="//js.arcgis.com/4.3/"></script>
-		<!-- <script type="text/javascript" src="js/basemapInfo.js"></script> -->
-		<!-- <script type="text/javascript" src="js/CompassGauge.js"></script> -->
 		<script type="text/javascript" src="js/index.js"></script>
 	</head>
 	
 	
 	<body class="claro">
-		<!-- <div style="height:300px; width:300px;" data-dojo-type="CompassGauge"/> -->
-		<div id="mapDiv"/>
+		<div id="mapDiv"></div>
 
 		<div id="controlsDiv" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Parameters'">
 			<table id="controlsTable">
 				<tr>
-					<td>
+					<td valign="top">
 						<div id="paramElevation" class="parameterCheckBox">
 							<input id="chkElevation" data-dojo-type="dijit/form/CheckBox"/>
-							<label for="chkElevation" class="parameterLabel">Elevation (m):</label>
+							<label for="chkElevation" class="parameterLabel">Elevation:</label>
 						</div>
 					</td><td>
 						<input id="sliderElevation" class="parameterSlider" data-dojo-type="dojox/form/HorizontalRangeSlider"
-							 data-dojo-props="minimum:0, maximum:4500, value:[0, 1000], showButtons:false"></input>
+							 data-dojo-props="minimum:0, maximum:4500, value:[0, 1000], showButtons:false, intermediateChanges:true"
+							 disabled="true"/>
+						<div id="textElevation" class="parameterText"/>
 					</td>
 				</tr><tr>
-					<td>
+					<td valign="top">
 						<div id="paramSlope" class="parameterCheckBox">
 							<input id="chkSlope" data-dojo-type="dijit/form/CheckBox"/>
-							<label for="chkSlope" class="parameterLabel">Slope (deg):</label>
+							<label for="chkSlope" class="parameterLabel">Slope:</label>
 						</div>
 					</td><td>
-						Slider
+						<input id="sliderSlope" class="parameterSlider" data-dojo-type="dojox/form/HorizontalRangeSlider"
+							 data-dojo-props="minimum:0, maximum:90, value:[0, 90], discreteValues:19, showButtons:false, intermediateChanges:true"
+							 disabled="true"/>
+						<div id="textSlope" class="parameterText"/>
 					</td>
 				</tr><tr>
-					<td>
+					<td valign="top">
 						<div id ="paramAspect" class="parameterCheckBox">
 							<input id="chkAspect" data-dojo-type="dijit/form/CheckBox"/>
-							<label for="chkAspect" class="parameterLabel">Aspect (deg):</label>
+							<label for="chkAspect" class="parameterLabel">Aspect:</label>
 						</div>
 					</td><td align="center">
 						<div id="aspectCompass" data-dojo-type="dojox.gauges.GlossyCircularGauge"
-							data-dojo-props="windowDegrees:50, region:'center'"
+							data-dojo-props="windowDegrees:50"
 							color="#2F73B6"
 							title="Aspect"
 							useTooltip="false"
@@ -91,8 +93,19 @@
 							majorTicksColor="white"
 							textIndicatorVisible="false">
 						</div>
-						<div id="compassAngles" style="text-align:center" data-dojo-props="region:'center'"></div>
+						<div id="compassAngles" class="parameterText"></div>
 					</td>
+				</tr><tr>
+				<td>
+					<i><button id="btnDisclaimer" data-dojo-type="dijit/form/Button" type="button">Disclaimer
+						<script type="dojo/on" data-dojo-event="click">
+							alert("This application is for demonstration purposes only and must not be used in production environments. " +
+								  "The application is provided without warranty express or implied. " +
+								  "Elevation data is derived from 30m NED, 90m STRM, 1km GTOPO, and 5m DEM derived from USGS CLICK LIDAR. " +
+								  "Errors and omissions exist.");
+						</script>
+					</button></i>
+				</td><td></td>
 				</tr>
 			</table>
 		</div>
