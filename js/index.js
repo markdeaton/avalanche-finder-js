@@ -14,12 +14,14 @@ require([
 	"esri/geometry/Extent",
 	"esri/geometry/SpatialReference",
 	"esri/layers/ImageryLayer",
-	"esri/layers/support/RasterFunction"
+	"esri/layers/support/RasterFunction",
+	"esri/widgets/BasemapGallery",
+	"esri/widgets/Expand"
 ],
 function(
 		dom, win, parser, ready, on, domAttr, domClass, registry, GlossyCircularGauge, Range,
 		Map, MapView,
-		Extent, SpatialReference, ImageryLayer, RasterFunction) {
+		Extent, SpatialReference, ImageryLayer, RasterFunction, BasemapGallery, Expand) {
 	
 	// CONSTS
 	var windowDegrees;
@@ -76,7 +78,18 @@ function(
 		extent: new Extent({xmin:-13758747, ymin:5471107, xmax:-13025849, ymax:6092218,
 												spatialReference: SpatialReference.WebMercator})
 	});
-
+	var basemapGallery = new BasemapGallery({
+		view: mapView,
+		container: document.createElement("div")
+	});
+	var bgExpand = new Expand({
+		view: mapView,
+		content: basemapGallery.domNode,
+		expandIconClass: "esri-icon-basemap",
+		container: "basemapGalleryDiv",
+		expandTooltip: "Click for Basemaps"
+	});
+	// mapView.ui.add(bgExpand, "top-right");
 	// Event handler functions
 	function onElevationCheckBoxChanged(evt) {
 		elevationSelected = evt;

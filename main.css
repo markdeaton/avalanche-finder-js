@@ -35,6 +35,11 @@ html, body {
 #esriLogoImage {
 	height	: 40px;
 }
+#basemapGalleryDiv {
+	position: absolute;
+	top		: 85px;
+    left	: 55px;
+}
 #mapDiv {
 	height	: 92%;
 	width	: 100%;
@@ -44,7 +49,7 @@ html, body {
     padding: 5px 5px 5px 5px;
     background-color: rgba(63, 63, 63, 0.8);
     opacity: 0.85;
-    top: 75px;
+    top: 85px;
     right: 10px;
 }
 #aspectCompass {
